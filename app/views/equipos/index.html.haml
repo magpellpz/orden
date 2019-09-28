@@ -1,0 +1,27 @@
+%h1 Listing equipos
+
+%table
+  %thead
+    %tr
+      %th N serie
+      %th Marca
+      %th Modelo
+      %th Tipo equipo
+      %th
+      %th
+      %th
+
+  %tbody
+    - @equipos.each do |equipo|
+      %tr
+        %td= equipo.n_serie
+        %td= equipo.marca
+        %td= equipo.modelo
+        %td= equipo.tipo_equipo
+        %td= link_to 'Show', equipo
+        %td= link_to 'Edit', edit_equipo_path(equipo)
+        %td= link_to 'Destroy', equipo, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Equipo', new_equipo_path

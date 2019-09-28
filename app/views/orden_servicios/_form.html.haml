@@ -1,0 +1,22 @@
+= form_for @orden_servicio do |f|
+  - if @orden_servicio.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@orden_servicio.errors.count, "error")} prohibited this orden_servicio from being saved:"
+      %ul
+        - @orden_servicio.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :user
+    = f.text_field :user
+  .field
+    = f.label :cliente
+    = f.text_field :cliente
+  .field
+    = f.label :servicio
+    = f.text_field :servicio
+  .field
+    = f.label :equipo
+    = f.text_field :equipo
+  .actions
+    = f.submit 'Save'
